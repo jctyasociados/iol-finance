@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Show Symbols
+{% endblock %}
+
+{% block main %}
+<div style="height: 700px; width: 100%; overflow: scroll;">
+    {{ data.to_html() | safe}}  
+</div>
+
+{% endblock %}

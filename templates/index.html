@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ sum_totals | usd }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for portfolio in transaction %}
+                <tr>
+                    <td>{{ portfolio.symbol }}</td>
+                    <td>{{ portfolio.company }}</td>
+                    <td>{{ portfolio.sum_of_shares }}</td>
+                    <td>{{ portfolio.price | usd }}</td>
+                    <td>{{ portfolio.total | usd }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{ owned_cash | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

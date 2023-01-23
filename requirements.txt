@@ -1,0 +1,7 @@
+cs50==9.2.2
+Flask==2.0.3
+Flask-Session
+requests
+pandas
+gunicorn
+Werkzeug
